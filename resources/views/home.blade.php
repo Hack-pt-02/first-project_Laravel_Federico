@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About</title>
+    <title>Home</title>
 
 
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    
     <link rel="stylesheet" href=" {{asset("/css/style.css")}}">
-
-
 </head>
 
 <body>
@@ -33,12 +32,13 @@
     <hr class="divisor">
 
 
-    <h1 class="title">About Us</h1>
-    <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+    <h1 class="title">Hola somos {{$companyName}}</h1>
+    <h2 class="subtitle">Bienvenido,  <span class="name_user">{{$name}}</span></h2>
 
     <hr class="divisor">
 
     <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quae eos fugiat saepe, nisi ipsa quaerat maiores! Tenetur delectus esse reprehenderit aperiam similique atque rerum illum doloremque, soluta, asperiores at!</p>
+
 
 
 

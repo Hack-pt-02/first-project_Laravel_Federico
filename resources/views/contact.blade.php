@@ -1,19 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href=" {{asset("/css/style.css")}}">
+
 </head>
+
 <body>
 
-<h1>CONTACT</h1>
 
-<p>{{ $name }}</p>
-<p>{{ $surname }}</p>
-    
+    <ul class="nav mt-5 mb-5 d-flex justify-content-around fs-3">
+        <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href=" {{ url('home') }} ">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('about') }}">About Us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url('contact') }}">Contact Us</a>
+        </li>
+    </ul>
 
+
+    <hr class="divisor">
+
+
+    <h1 class="title">Contact Us</h1>
+    <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+
+    <hr class="divisor">
+
+    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quae eos fugiat saepe,
+        nisi ipsa quaerat maiores! Tenetur delectus esse reprehenderit aperiam similique atque rerum illum doloremque,
+        soluta, asperiores at!</p>
+
+
+    <div class="form-contact">
+
+        <form action="get">
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Tell us more...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-secondary btn-contact">Envia</button>
+            </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
 
 </body>
+
 </html>

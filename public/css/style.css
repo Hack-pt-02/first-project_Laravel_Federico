@@ -1,0 +1,56 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(337deg, rgba(2,0,36,1) 0%, rgba(155,155,215,1) 35%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
+hr {
+    height: 5px;
+    width: 50%;
+    border-top: 10px dotted blue;
+    margin-left: 25%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+}
+
+
+h1 {
+    margin-left: 10%;
+}
+
+
+h2 {
+    margin-left: 20%
+}
+
+
+
+.name_user {
+    font-weight: bold;
+
+    background: linear-gradient(to right, #067070 0%, #42038f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ 
+
+}
+.description {
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 1.5rem;
+}
+
+
+
+.form-contact {
+    margin: 10% 30%;
+}
+
+.btn-contact {
+    width: 100%;
+}

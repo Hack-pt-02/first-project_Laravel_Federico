@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Detalle</title>
 
 
 
@@ -33,8 +33,8 @@
     <hr class="divisor">
 
 
-    <h1 class="title">Hola somos {{$companyName}}</h1>
-    <h2 class="subtitle">Bienvenido, <span class="name_user">{{$name}}</span></h2>
+    <h1 class="title">Hola somos XXXX</h1>
+    <h2 class="subtitle">Bienvenido, <span class="name_user"> XXXX</span></h2>
 
     <hr class="divisor">
 
@@ -45,14 +45,23 @@
 
 
 
-    <!-- este comento se verás en el navegador-->
 
-    @php
-    /* este comento no se verás*/
-    @endphp
+        <div class="card m-auto" style="width: 30rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ $local[1]}}</h5>
+              <p class="card-text">{{$local[2]}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
 
 
-    <table class="table table-striped table-hover mx-auto w-50">
+
+        @php
+
+        /*
+
+
+        <table class="table table-striped table-hover mx-auto w-50">
 
             @foreach ($locals as $local)
 
@@ -65,6 +74,12 @@
             @endforeach
        
 
+            */
+            
+
+        @endphp
+        
+
 
 
     </table>
@@ -72,6 +87,7 @@
 
 
 
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">

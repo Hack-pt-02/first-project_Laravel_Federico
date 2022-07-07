@@ -2,8 +2,12 @@
 {{-- lleva la plantilla desde layout --}}
 @extends('layout.locals')
 
+{{-- title head --}}
+@section('titleHead')
+    Lista Cervezeria
+@endsection
 
-{{-- title --}}
+{{-- title body--}}
 @section('title', 'Cerveza')
 
 
@@ -23,5 +27,24 @@
 
     </div>
 </div>
+
+@endsection
+
+
+@section('footer-section')
+    <x-footer />
+@endsection
+
+
+
+@section("message")
+
+{{-- MEJOR USAR ESTA --}}
+<x-message :texto="$texto"/> 
+
+
+{{-- <x-message texto="{{ $texto }}"/>  EVITAR DE USAR ESTA--}}
+
+{{-- <x-message texto="texto"/>  PONER VALOR ESTATICO--}}
 
 @endsection

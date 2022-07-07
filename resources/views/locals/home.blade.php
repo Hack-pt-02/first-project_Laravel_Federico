@@ -3,7 +3,13 @@
 @extends('layout.locals')
 
 
-{{-- title --}}
+{{-- title head --}}
+@section('titleHead')
+Cerveza
+@endsection
+
+
+{{-- title body--}}
 @section('title', "Lista de cerveza")
 
 
@@ -16,6 +22,7 @@
 
 <table class="table table-striped table-hover mx-auto w-50">
 
+    
     @foreach ($locals as $key =>$local)
 
     <tr class="shadow">
@@ -25,12 +32,18 @@
 
     @endforeach
 
-
-
-
 </table>
 @endsection
 
+
+@section('message')
+    <x-message :texto="$texto"/>
+@endsection
+
+
+@section('footer-section')
+    <x-footer />
+@endsection
 
 
 

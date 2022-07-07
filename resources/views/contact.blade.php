@@ -2,7 +2,12 @@
 {{-- lleva la plantilla desde layout --}}
 @extends('layout.locals')
 
-{{-- title --}}
+{{-- title head --}}
+@section('titleHead')
+    contact us
+@endsection
+
+{{-- title body--}}
 @section('title', "contact us")
 
 {{-- name --}}
@@ -29,6 +34,11 @@
         </form>
 
 </div>
+@endsection
+
+
+@section('footer-section')
+    <x-footer />
 @endsection
 
 

@@ -1,4 +1,47 @@
-<!DOCTYPE html>
+
+{{-- lleva la plantilla desde layout --}}
+@extends('layout.locals')
+
+{{-- title --}}
+@section('title', "contact us")
+
+{{-- name --}}
+@section('name', "Federico")
+
+
+{{-- me lleva el form --}}
+@section('content')
+<div class="form-contact shadow p-5">
+
+    <form action="get">
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control shadow" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Tell us more...</label>
+            <textarea class="form-control shadow" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-contact btn-volver">Envia</button>
+        </form>
+
+</div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,13 +103,10 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-secondary btn-contact">Envia</button>
+            <button type="submit" class="btn btn-secondary btn-contact btn-volver">Envia</button>
             </form>
 
     </div>
-
-
-
 
 
 
@@ -79,4 +119,4 @@
 
 </body>
 
-</html>
+</html> --}}

@@ -28,7 +28,7 @@ Route::get('/home', function () {
         [9, "Beerwin 9", "Cerverceria muy barata"],
     ];
 
-    return view('home', [
+    return view('locals.home', [
         "locals" => $locals,
         "name" => "Federico",
         "companyName" => "Cerveceria"
@@ -49,7 +49,10 @@ Route::get('/local/{id}', function($id) {
         [9, "Beerwin 9", "Cerverceria muy barata"],
     ];
 
-    return view('local', ["local"=> $locals[$id]]);
+
+    //dd($locals);
+
+    return view('locals.local', ["local"=> $locals[$id]]);
 });
 
 

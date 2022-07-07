@@ -18,6 +18,14 @@ hr {
 }
 
 
+.btn-volver {
+    background: linear-gradient(to right, #067070 0%, #42038f 100%);
+    color: white;
+    width: 100%;
+   
+
+}
+
 h1 {
     margin-left: 10%;
 }

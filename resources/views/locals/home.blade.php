@@ -1,4 +1,42 @@
-<!DOCTYPE html>
+
+{{-- lleva la plantilla desde layout --}}
+@extends('layout.locals')
+
+
+{{-- title --}}
+@section('title', "Lista de cerveza")
+
+
+{{-- name --}}
+@section('name', "Federico")
+
+{{-- table --}}
+
+@section('content')
+
+<table class="table table-striped table-hover mx-auto w-50">
+
+    @foreach ($locals as $key =>$local)
+
+    <tr class="shadow">
+        <td class="text-center p-4 fs-5"><a class="text-decoration-none name_user" href="/local/{{$key}}">{{$local[1]}}</a></td>
+        <td class="text-center text-white fs-5 p-4">{{$local[2]}}</td>
+    </tr>
+
+    @endforeach
+
+
+
+
+</table>
+@endsection
+
+
+
+
+
+
+{{-- <!--DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,14 +92,13 @@
 
     <table class="table table-striped table-hover mx-auto w-50">
 
-            @foreach ($locals as $local)
+            @foreach ($locals as $key =>$local)
 
             <tr>
-                <td class="text-center">{{$local[1]}}</td>
+                <td class="text-center"><a href="/local/{{$key}}">{{$local[1]}}</a></td>
                 <td class="text-center">{{$local[2]}}</td>
             </tr>
-            
-                
+     
             @endforeach
        
 
@@ -79,4 +116,4 @@
 
 </body>
 
-</html>
+</html> --}}

@@ -19,7 +19,7 @@
     <div class="col-md-6 text-center">
         <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+              <a class="nav-link active text-white" aria-current="page" href="{{asset("caloriesCalculator")}}">Calculator</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="#">About Us</a>

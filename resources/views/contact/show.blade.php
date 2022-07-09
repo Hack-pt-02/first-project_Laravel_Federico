@@ -18,20 +18,26 @@
 @section('content')
 <div class="form-contact shadow p-5">
 
-    <form action="get">
+    <form method="post" action="{{route("contact")}}">
+
+        @csrf
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control shadow" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input name="email" type="email" class="form-control shadow" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Tell us more...</label>
-            <textarea class="form-control shadow" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea name="message" class="form-control shadow" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
 
         <button type="submit" class="btn btn-secondary btn-contact btn-volver">Envia</button>
         </form>
+
+
+
+        <x-message-flash />
 
 </div>
 @endsection
@@ -39,6 +45,13 @@
 
 @section('footer-section')
     <x-footer />
+@endsection
+
+
+@section('form') 
+    <x-title-form>
+        <x-slot:color>warning</x-slot:color>
+    </x-title-form>
 @endsection
 
 

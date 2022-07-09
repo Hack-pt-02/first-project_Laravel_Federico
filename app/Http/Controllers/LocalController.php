@@ -15,6 +15,9 @@ class LocalController extends Controller
         [9, "Beerwin 9", "Cerverceria muy barata"],
     ];
 
+    public $a = true;
+    public $food = "apple";
+
 
 
     public function home() {
@@ -27,14 +30,12 @@ class LocalController extends Controller
         ]);
     }
 
-
     public function show($id) {                 
         return view('locals.local', [
             "local"=> $this->locals[$id],
             "texto" => "Designed By Federico Di Natale",
         ]);
     }
-
 
     public function about() {
         return view("about", [
@@ -43,10 +44,53 @@ class LocalController extends Controller
     }
 
 
-    public function contact() {
-        return view("contact" , [
-            "texto" => "Designed By Federico Di Natale",
-            "title_head" => "contact us"
+    public function caloriesCalculator() {
+
+        if ($this->food == 0){
+            $a = false;
+        }
+    
+        $curl = curl_init();
+    
+    $url = "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=" . $this->food;
+    
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: edamam-food-and-grocery-database.p.rapidapi.com",
+            "X-RapidAPI-Key: 93b6ad6808msheb2f9af915c4ab6p16506ejsn4cf79178e76f"
+        ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+ 
+    $data = json_decode($response);
+    //echo $data->text;
+    $calories = $data->hints[0]->food->nutrients->ENERC_KCAL;
+    $protein = $data->hints[0]->food->nutrients->PROCNT;
+    $fat = $data->hints[0]->food->nutrients->FAT;
+    $carbs = $data->hints[0]->food->nutrients->ENERC_KCAL;
+    $fiber = $data->hints[0]->food->nutrients->ENERC_KCAL;
+    
+   
+        return view("caloriesCalculator", [
+            "a" => $this->a,
+            'food' => $this->food,
+            "calories" => $calories,
+            "protein" => $protein, 
+            "fat" => $fat, 
+            "carbs" => $carbs, 
+            "fiber" => $fiber
         ]);
     }
 }

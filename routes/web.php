@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalController;
+use App\Http\Controllers\ContactController;
+
 
 
 /*
@@ -100,4 +102,11 @@ Route::get("/about", [LocalController::class, "about"]) -> name("about");
 //     return view("contact");
 // });
 
-Route::get("/contact", [LocalController::class, "contact"]) ->name("contact");
+Route::get("/contact", [ContactController::class, "show"]) ->name("contact");
+Route::post("/contact",[ContactController::class, "store"]);
+
+// Route::get("/caloriesCalculator", function() {
+//     return view("caloriesCalculator");
+// }) ->name("caloriesCalculator");
+
+Route::get("/caloriesCalculator", [LocalController::class, "caloriesCalculator"]) ->name("caloriesCalculator");

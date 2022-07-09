@@ -4,19 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Head extends Component
+class title-form extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
-     public $title;
-
     public function __construct()
     {
-        $this->title = "CERVEZA";
+        //
     }
 
     /**
@@ -26,6 +23,6 @@ class Head extends Component
      */
     public function render()
     {
-        return view('components.head');
+        return view('components.title-form');
     }
 }

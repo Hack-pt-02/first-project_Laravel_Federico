@@ -1,4 +1,6 @@
-@props(['titleHead'])
+@props(
+['title']
+)
 
 <head>
 
@@ -13,5 +15,5 @@
     
     <link rel="stylesheet" href=" {{asset("/css/style.css")}}">
     
-    <title>{{$titleHead}}</title>
+    <title>{{$title}}</title>
 </head>

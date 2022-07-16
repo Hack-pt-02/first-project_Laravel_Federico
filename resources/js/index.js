@@ -1,0 +1,6 @@
+
+
+
+function greetings() {
+    alert("hola");
+};

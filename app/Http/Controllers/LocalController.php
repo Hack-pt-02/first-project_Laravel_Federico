@@ -16,7 +16,7 @@ class LocalController extends Controller
     ];
 
     public $a = true;
-    public $food = "apple";
+    public $food = "banana";
 
 
 

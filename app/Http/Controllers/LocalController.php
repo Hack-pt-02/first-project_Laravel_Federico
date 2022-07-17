@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class LocalController extends Controller
 {
-    public $locals = [
-        [1, "Beerwin 1", "Cerverceria muy grande"],
-        [3, "Beerwin 3", "Cerverceria muy pequeña"],
-        [5, "Beerwin 5", "Cerverceria muy lejo"],
-        [6, "Beerwin 6", "Cerverceria muy cerca"],
-        [8, "Beerwin 8", "Cerverceria muy cara"],
-        [9, "Beerwin 9", "Cerverceria muy barata"],
-    ];
+    // public $locals = [
+    //     [1, "Beerwin 1", "Cerverceria muy grande"],
+    //     [3, "Beerwin 3", "Cerverceria muy pequeña"],
+    //     [5, "Beerwin 5", "Cerverceria muy lejo"],
+    //     [6, "Beerwin 6", "Cerverceria muy cerca"],
+    //     [8, "Beerwin 8", "Cerverceria muy cara"],
+    //     [9, "Beerwin 9", "Cerverceria muy barata"],
+    // ];
 
     public $a = true;
     public $food = "banana";
@@ -21,21 +23,53 @@ class LocalController extends Controller
 
 
     public function home() {
-           
+
+        $locals = DB::table("locals") ->get();
+        //dd($locals);
+
         return view('locals.home', [
-            "locals" => $this->locals,
+            "locals" => $locals,
             "name" => "Federico",
             "companyName" => "Cerveceria",
             "texto" => "Designed By Federico Di Natale",
         ]);
     }
 
-    public function show($id) {                 
+    public function create() {
+        return view("locals.create");
+    }
+
+    public function store(Request $request) {
+
+        $image = $request->file("img") ->store("public/locals");
+
+        DB::table("locals") ->insert([
+            "name" => $request->name,
+            "description" => $request->get("message"),
+            "url" => Storage::url($image)
+
+            //puedo inserir un valor constante: 
+            // "url" => ""
+        ]);
+        if ($request->name != "" && $request->message != "") {
+            return back()->with("success", "hemos recibido tu cerveceria");
+        } else {
+            return back()->with("error", "Tieme que reienar todos los campos");
+            
+        }
+    }
+
+    public function show($id) {  
+        $objlocals = DB::table("locals")->where("id", "=", $id) -> first(); 
+        //dd($locals);      
+
         return view('locals.local', [
-            "local"=> $this->locals[$id],
+            "objlocals"=> $objlocals,
             "texto" => "Designed By Federico Di Natale",
         ]);
     }
+
+
 
     public function about() {
         return view("about", [

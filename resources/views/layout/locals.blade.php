@@ -41,8 +41,6 @@
     @yield('message')
 
 
-    <button type="button" onClick="greetings()"> Alert</button>
-
     
     <script src="{{asset("/js/app.js")}}" rel="text/javascript"></script>
     <script src="{{asset("/js/index.js")}}" rel="text/javascript"></script>

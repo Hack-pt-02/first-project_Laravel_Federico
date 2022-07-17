@@ -69,3 +69,22 @@ h2 {
 
 
 
+/* table locals */
+
+.btn-add {
+    height: 50px;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #067070 0%, #42038f 100%);
+    border: 2px solid white;
+}
+
+
+.btn-add:hover {
+    background: linear-gradient(to right, #067070 0%, #541c99 100%);
+    border: 1px solid white;
+}
+
+
+.btn-add-contact {
+    background: linear-gradient(to right, #067070 0%, #42038f 100%);
+}

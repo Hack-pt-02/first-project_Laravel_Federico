@@ -20,14 +20,18 @@ Cerveza
 
 @section('content')
 
+
 <table class="table table-striped table-hover mx-auto w-50">
+    <tr>
+        <td colspan="2" class=" p-0 m-0"><a href="{{ route("create")}}" class="btn w-100 mx-auto p-0 m-0 btn-add text-white">Añade Cerveceria</a></td>
+    </tr>
 
     
     @foreach ($locals as $key =>$local)
 
     <tr class="shadow">
-        <td class="text-center p-4 fs-5"><a class="text-decoration-none name_user" href="/local/{{$key}}">{{$local[1]}}</a></td>
-        <td class="text-center text-white fs-5 p-4">{{$local[2]}}</td>
+        <td class="text-center p-4 fs-5"><a class="text-decoration-none name_user" href="/local/{{$local->id}}">{{$local->id}}</a></td>
+        <td class="text-center text-white fs-5 p-4">{{$local->name}}</td>
     </tr>
 
     @endforeach

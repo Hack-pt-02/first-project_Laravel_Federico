@@ -75,22 +75,17 @@ Route::get("/home", [LocalController::class, "home"]) -> name("home") ;
 
 
 
-Route::get("/local/{id}", [LocalController::class, "show"]) -> name("local") ;
+Route::get("/local/{id}", [LocalController::class, "show"]);
 //he cambiado nombre desde local a show
-
-
-
-
-
-
-
-
-
 
 
 // Route::get("/about", function () {
 //     return view('about');
 // });
+
+Route::get("/create", [LocalController::class, "create"]) ->name ("create");
+Route::post("/create", [LocalController::class, "store"]);
+
 
 Route::get("/about", [LocalController::class, "about"]) -> name("about");
 
@@ -102,7 +97,7 @@ Route::get("/about", [LocalController::class, "about"]) -> name("about");
 //     return view("contact");
 // });
 
-Route::get("/contact", [ContactController::class, "show"]) ->name("contact");
+Route::get("/contact", [ContactController::class, "show"]);
 Route::post("/contact",[ContactController::class, "store"]);
 
 // Route::get("/caloriesCalculator", function() {

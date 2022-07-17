@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('locals', function (Blueprint $table) {
             $table->id();
             $table->string('name', 250);
-            $table->text('descrption');
+            $table->text('description');
             $table->string('url', 250);
             $table->timestamps();
         });

@@ -21,8 +21,11 @@
 
 <div class="card m-auto" style="width: 30rem;">
     <div class="card-body text-center">
-        <h5 class="card-title">{{ $local[1]}}</h5>
-        <p class="card-text">{{$local[2]}}</p>
+        <div>
+            <img src="{{$objlocals->url}}" alt="not working" class="img-fluid">
+        </div>
+        <h5 class="card-title">{{ $objlocals->id }}</h5>
+        <p class="card-text">{{ $objlocals->name }}</p>
         <a href="/home" class="btn btn-volver">Volver</a>
 
     </div>

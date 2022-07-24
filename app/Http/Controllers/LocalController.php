@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Local;
+use App\Http\Requests\LocalRequest;
 
 class LocalController extends Controller
 {
@@ -24,9 +26,14 @@ class LocalController extends Controller
 
     public function home() {
 
-        $locals = DB::table("locals") ->get();
+        //$locals = DB::table("locals") ->get();
         //dd($locals);
 
+
+        //con el MODEL: 
+
+       // $locals = Local::orderBy("created_at")->get(); //orderByDesc("name");
+        $locals = Local::orderBy("created_at")->simplePaginate(6); // con paginacion; 
         return view('locals.home', [
             "locals" => $locals,
             "name" => "Federico",
@@ -39,29 +46,37 @@ class LocalController extends Controller
         return view("locals.create");
     }
 
-    public function store(Request $request) {
+    public function store(LocalRequest $request) {
 
-        $image = $request->file("img") ->store("public/locals");
+        $image = Storage::url($request->file("img")->store("public/locals"));
 
-        DB::table("locals") ->insert([
-            "name" => $request->name,
-            "description" => $request->get("message"),
-            "url" => Storage::url($image)
+        $name = $request->name; 
 
-            //puedo inserir un valor constante: 
-            // "url" => ""
-        ]);
-        if ($request->name != "" && $request->message != "") {
-            return back()->with("success", "hemos recibido tu cerveceria");
+        if((strlen ($name) > 0) && (strlen ($name) < 100)) {
+
+            Local::create([
+                "name" => $name,
+                "description" => $request->get("message"),
+                "url" => $image
+            ])->saveOrFail();
+
+            return redirect()->route("home")->with("success", "hemos recibido tu cerveceria");
+
         } else {
-            return back()->with("error", "Tieme que reienar todos los campos");
-            
+
+            return back()->with("error", "No hemos recibido tu cerveceria");
         }
+
     }
 
     public function show($id) {  
-        $objlocals = DB::table("locals")->where("id", "=", $id) -> first(); 
-        //dd($locals);      
+        //$objlocals = DB::table("locals")->where("id", "=", $id) -> first(); 
+        //dd($locals);  
+        
+        // CON EL MODEL 
+
+        $objlocals = Local::findOrFail($id);
+        //dd($objlocals);
 
         return view('locals.local', [
             "objlocals"=> $objlocals,

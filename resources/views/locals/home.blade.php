@@ -23,7 +23,9 @@ Cerveza
 
 <table class="table table-striped table-hover mx-auto w-50">
     <tr>
-        <td colspan="2" class=" p-0 m-0"><a href="{{ route("create")}}" class="btn w-100 mx-auto p-0 m-0 btn-add text-white">Añade Cerveceria</a></td>
+        <td colspan="2" class=" p-0 m-0">
+            <a href="{{ route("create")}}" class="btn w-100 mx-auto p-0 m-0 btn-add text-white">Añade Cerveceria</a>
+        </td>
     </tr>
 
     
@@ -35,8 +37,16 @@ Cerveza
     </tr>
 
     @endforeach
-
+    
 </table>
+
+
+<div class="paginate-custom">
+    {{$locals->links()}}
+</div>
+
+
+
 @endsection
 
 

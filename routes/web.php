@@ -98,7 +98,7 @@ Route::get("/about", [LocalController::class, "about"]) -> name("about");
 // });
 
 Route::get("/contact", [ContactController::class, "show"]);
-Route::post("/contact",[ContactController::class, "store"]);
+Route::post("/contact",[ContactController::class, "store"]) ->name("contact");
 
 // Route::get("/caloriesCalculator", function() {
 //     return view("caloriesCalculator");

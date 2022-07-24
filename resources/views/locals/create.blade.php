@@ -22,12 +22,12 @@
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="name" class="form-control" id="name" placeholder="Nombre de la Cervezeria" name="name">
+            <input type="name" class="form-control" id="name" placeholder="Nombre de la Cervezeria" name="name" value="{{old("name")}}">
         </div>
 
         <div class="mb-3">
         <label for="text-area" class="form-label">Comment</label>
-        <textarea type="text" class="form-control" id="text-area" placeholder="Describe tu cervezeria" name="message" rows="6"> </textarea>
+        <textarea type="text" class="form-control" id="text-area" placeholder="Describe tu cervezeria" name="message" rows="6" value="{{old("message")}}"> </textarea>
         </div>
 
 

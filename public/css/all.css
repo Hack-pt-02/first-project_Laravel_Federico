@@ -88,3 +88,21 @@ h2 {
 .btn-add-contact {
     background: linear-gradient(to right, #067070 0%, #42038f 100%);
 }
+
+
+nav{
+    margin: 5% 40%;
+}
+
+.bg-white{
+    background-color: rgb(115, 115, 194) !important;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.bg-white:hover {
+    color: aquamarine;
+
+}
